@@ -1,6 +1,6 @@
 'use client'
 import * as React from 'react';
-import { Stack } from '@mui/material'
+import { Container, Typography } from '@mui/material'
 import { CityData } from '../types/citydata';
 import SearchInPut from '../components/SearchInPut';
 
@@ -21,11 +21,18 @@ export default function Home() {
 
     fetchData();
   }, []);
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Stack spacing={2} sx={{ width: 400 }}>
+    <main className="flex min-h-screen flex-col items-center justify-start p-24 gap-6">
+      <Typography variant="h4" >
+        Type state or city:
+      </Typography>
+      <Container sx={{
+        width: { xs: '50vw', sm: '300px', md: '400px', lg: '450px' },
+      }
+      }>
         <SearchInPut data={data} />
-      </Stack>
+      </Container>
     </main>
   )
 }
